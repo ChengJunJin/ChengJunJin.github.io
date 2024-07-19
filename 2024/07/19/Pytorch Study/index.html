@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="ChengJun Jin (SungKun Kim)">
+    
+    <title>
+        
+            Pytorch Study |
+        
+        ChengJun Jin (SungKun Kim)
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"ChengJun Jin (SungKun Kim)","author":"ChengJun Jin (SungKun Kim)","avatar":"https://img1.baidu.com/it/u=3064471960,3758379902&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/                         || fa-solid fa-home","archives":"/archives             || fa-solid fa-box-archive","about":"/about                   || fa-solid fa-user-graduate"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/ChengJunJin","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","email":"chengjunjin2001@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2023,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               ChengJun Jin (SungKun Kim)
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                </span>
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Pytorch Study
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://img1.baidu.com/it/u=3064471960,3758379902&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">ChengJun Jin (SungKun Kim)</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-07-19 16:53:54</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Fri Jul 19 2024 16:58:07 GMT+0800">2024-07-19 16:58:07</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="Learning-PyTorch-A-Comprehensive-Journey"><a href="#Learning-PyTorch-A-Comprehensive-Journey" class="headerlink" title="Learning PyTorch: A Comprehensive Journey"></a>Learning PyTorch: A Comprehensive Journey</h1><h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
+<li>Introduction</li>
+<li>Setting Up PyTorch<ul>
+<li>Installing PyTorch</li>
+<li>Verifying Installation</li>
+</ul>
+</li>
+<li>PyTorch Basics<ul>
+<li>Tensors</li>
+<li>Tensor Operations</li>
+</ul>
+</li>
+<li>Building Neural Networks with PyTorch<ul>
+<li>Understanding Autograd</li>
+<li>Creating a Neural Network</li>
+<li>Loss Functions and Optimization</li>
+</ul>
+</li>
+<li>Training a Neural Network<ul>
+<li>Data Preparation</li>
+<li>Forward and Backward Passes</li>
+<li>Model Evaluation</li>
+</ul>
+</li>
+<li>Case Study: Image Classification with CNNs<ul>
+<li>Dataset: CIFAR-10</li>
+<li>Building the CNN</li>
+<li>Training and Evaluating the CNN</li>
+</ul>
+</li>
+<li>Advanced Topics in PyTorch<ul>
+<li>Transfer Learning</li>
+<li>Fine-tuning Pretrained Models</li>
+<li>Using GPUs for Acceleration</li>
+</ul>
+</li>
+<li>PyTorch in Production<ul>
+<li>Saving and Loading Models</li>
+<li>Deploying PyTorch Models</li>
+</ul>
+</li>
+<li>Conclusion and Future Directions</li>
+<li>References</li>
+</ol>
+<hr>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>PyTorch is an open-source machine learning library developed by Facebook’s AI Research lab. It has gained immense popularity due to its dynamic computational graph, ease of use, and flexibility. PyTorch is widely used for developing deep learning models, ranging from simple feedforward networks to complex state-of-the-art architectures.</p>
+<p>This blog post aims to document my journey of learning PyTorch, covering everything from the basics to advanced topics. By the end of this comprehensive guide, you should have a solid understanding of PyTorch and be able to build, train, and deploy your own deep learning models.</p>
+<hr>
+<h2 id="2-Setting-Up-PyTorch"><a href="#2-Setting-Up-PyTorch" class="headerlink" title="2. Setting Up PyTorch"></a>2. Setting Up PyTorch</h2><h3 id="Installing-PyTorch"><a href="#Installing-PyTorch" class="headerlink" title="Installing PyTorch"></a>Installing PyTorch</h3><p>The first step in our PyTorch journey is to install the library. PyTorch provides a straightforward installation process, and it can be installed via pip or conda.</p>
+<p>To install PyTorch using pip, you can run the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch torchvision</span><br></pre></td></tr></table></figure>
+
+<p>If you are using Anaconda, you can install PyTorch using the conda package manager:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>Make sure to select the appropriate version of CUDA based on your system’s GPU configuration.</p>
+<h3 id="Verifying-Installation"><a href="#Verifying-Installation" class="headerlink" title="Verifying Installation"></a>Verifying Installation</h3><p>To verify that PyTorch has been installed correctly, you can open a Python interpreter and run the following commands:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br></pre></td></tr></table></figure>
+
+<p>If PyTorch is installed correctly, you should see the version number printed, and <code>torch.cuda.is_available()</code> should return <code>True</code> if a compatible GPU is available.</p>
+<hr>
+<h2 id="3-PyTorch-Basics"><a href="#3-PyTorch-Basics" class="headerlink" title="3. PyTorch Basics"></a>3. PyTorch Basics</h2><h3 id="Tensors"><a href="#Tensors" class="headerlink" title="Tensors"></a>Tensors</h3><p>Tensors are the fundamental building blocks of PyTorch. They are similar to NumPy arrays but have additional capabilities for GPU acceleration. Let’s start by creating and manipulating tensors.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Creating a tensor</span></span><br><span class="line">x = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Creating a tensor with random values</span></span><br><span class="line">y = torch.rand(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Creating a tensor with all zeros</span></span><br><span class="line">z = torch.zeros(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(z)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Tensor-Operations"><a href="#Tensor-Operations" class="headerlink" title="Tensor Operations"></a>Tensor Operations</h3><p>PyTorch supports a wide range of tensor operations. Here are some common operations:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Addition</span></span><br><span class="line">a = torch.tensor([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = torch.tensor([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line">c = a + b</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Matrix multiplication</span></span><br><span class="line">d = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">e = torch.tensor([[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line">f = torch.matmul(d, e)</span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Element-wise multiplication</span></span><br><span class="line">g = d * e</span><br><span class="line"><span class="built_in">print</span>(g)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Reshaping tensors</span></span><br><span class="line">h = torch.tensor([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">i = h.view(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<p>Understanding and mastering tensor operations is crucial as they form the basis of all computations in PyTorch.</p>
+<hr>
+<h2 id="4-Building-Neural-Networks-with-PyTorch"><a href="#4-Building-Neural-Networks-with-PyTorch" class="headerlink" title="4. Building Neural Networks with PyTorch"></a>4. Building Neural Networks with PyTorch</h2><h3 id="Understanding-Autograd"><a href="#Understanding-Autograd" class="headerlink" title="Understanding Autograd"></a>Understanding Autograd</h3><p>One of the key features of PyTorch is <code>autograd</code>, an automatic differentiation library. It records operations performed on tensors and allows for automatic computation of gradients.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enabling gradient tracking</span></span><br><span class="line">x = torch.tensor([<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>], requires_grad=<span class="literal">True</span>)</span><br><span class="line">y = x * <span class="number">2</span></span><br><span class="line">z = y.mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Computing gradients</span></span><br><span class="line">z.backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Creating-a-Neural-Network"><a href="#Creating-a-Neural-Network" class="headerlink" title="Creating a Neural Network"></a>Creating a Neural Network</h3><p>PyTorch provides a high-level API called <code>torch.nn</code> for building neural networks. Let’s create a simple feedforward neural network:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(SimpleNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = F.relu(<span class="variable language_">self</span>.fc1(x))</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleNN()</span><br><span class="line"><span class="built_in">print</span>(model)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Loss-Functions-and-Optimization"><a href="#Loss-Functions-and-Optimization" class="headerlink" title="Loss Functions and Optimization"></a>Loss Functions and Optimization</h3><p>Loss functions measure the difference between the model’s predictions and the true values. PyTorch provides several loss functions, such as <code>nn.MSELoss</code> for mean squared error and <code>nn.CrossEntropyLoss</code> for classification tasks.</p>
+<p>Optimizers update the model’s parameters based on the computed gradients. Common optimizers include <code>SGD</code> and <code>Adam</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Loss function</span></span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimizer</span></span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=<span class="number">0.01</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-Training-a-Neural-Network"><a href="#5-Training-a-Neural-Network" class="headerlink" title="5. Training a Neural Network"></a>5. Training a Neural Network</h2><h3 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h3><p>To train a neural network, we need a dataset. PyTorch provides the <code>torch.utils.data</code> module to handle data loading and preprocessing.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader, TensorDataset</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sample data</span></span><br><span class="line">X_train = torch.tensor([[<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>], [<span class="number">4.0</span>, <span class="number">5.0</span>, <span class="number">6.0</span>], [<span class="number">7.0</span>, <span class="number">8.0</span>, <span class="number">9.0</span>]])</span><br><span class="line">y_train = torch.tensor([[<span class="number">1.0</span>], [<span class="number">2.0</span>], [<span class="number">3.0</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Creating a dataset and dataloader</span></span><br><span class="line">train_dataset = TensorDataset(X_train, y_train)</span><br><span class="line">train_loader = DataLoader(train_dataset, batch_size=<span class="number">2</span>, shuffle=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Forward-and-Backward-Passes"><a href="#Forward-and-Backward-Passes" class="headerlink" title="Forward and Backward Passes"></a>Forward and Backward Passes</h3><p>The forward pass involves passing the input through the network to get the predictions. The backward pass computes the gradients based on the loss and updates the model’s parameters.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Training loop</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">for</span> inputs, targets <span class="keyword">in</span> train_loader:</span><br><span class="line">        <span class="comment"># Forward pass</span></span><br><span class="line">        outputs = model(inputs)</span><br><span class="line">        loss = criterion(outputs, targets)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Backward pass and optimization</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/100], Loss: <span class="subst">&#123;loss.item():<span class="number">.4</span>f&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Model-Evaluation"><a href="#Model-Evaluation" class="headerlink" title="Model Evaluation"></a>Model Evaluation</h3><p>After training the model, we need to evaluate its performance on a test dataset.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sample test data</span></span><br><span class="line">X_test = torch.tensor([[<span class="number">10.0</span>, <span class="number">11.0</span>, <span class="number">12.0</span>]])</span><br><span class="line">y_test = torch.tensor([[<span class="number">4.0</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Evaluation</span></span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    predictions = model(X_test)</span><br><span class="line">    test_loss = criterion(predictions, y_test)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Test Loss: <span class="subst">&#123;test_loss.item():<span class="number">.4</span>f&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6-Case-Study-Image-Classification-with-CNNs"><a href="#6-Case-Study-Image-Classification-with-CNNs" class="headerlink" title="6. Case Study: Image Classification with CNNs"></a>6. Case Study: Image Classification with CNNs</h2><h3 id="Dataset-CIFAR-10"><a href="#Dataset-CIFAR-10" class="headerlink" title="Dataset: CIFAR-10"></a>Dataset: CIFAR-10</h3><p>The CIFAR-10 dataset consists of 60,000 32x32 color images in 10 classes, with 6,000 images per class. It is commonly used for training machine learning and computer vision algorithms.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"><span class="keyword">import</span> torchvision.datasets <span class="keyword">as</span> datasets</span><br><span class="line"></span><br><span class="line"><span class="comment"># Transformations</span></span><br><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>), (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>))</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load CIFAR-10 dataset</span></span><br><span class="line">train_dataset = datasets.CIFAR10(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">test_dataset = datasets.CIFAR10(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">False</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Data loaders</span></span><br><span class="line">train_loader = DataLoader(train_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">test_loader = DataLoader(test_dataset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Building-the-CNN"><a href="#Building-the-CNN" class="headerlink" title="Building the CNN"></a>Building the CNN</h3><p>We will build a convolutional neural network (CNN) for image classification.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(CNN, <span class="variable language_">self</span>).__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>)</span><br><span class="line">        <span class="variable language_">self</span>.conv2 = nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>, padding=<span class="number">1</span>)</span><br><span class="line">        <span class="variable language_">self</span>.pool = nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>, padding=<span class="number">0</span>)</span><br><span class="line">        <span class="variable language_">self</span>.fc1 = nn.Linear(<span class="number">64</span> * <span class="number">8</span> * <span class="number">8</span>, <span class="number">512</span>)</span><br><span class="line">        <span class="variable language_">self</span>.fc2 = nn.Linear(<span class="number">512</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.pool(F.relu(<span class="variable language_">self</span>.conv1(x)))</span><br><span class="line">        x = <span class="variable language_">self</span>.pool(F.relu(<span class="variable language_">self</span>.conv2(x)))</span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">64</span> * <span class="number">8</span> * <span class="number">8</span>)</span><br><span class="line">        x = F.relu(<span class="variable language_">self</span>.fc1(x))</span><br><span class="line">        x = <span class="variable language_">self</span>.fc2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = CNN()</span><br><span class="line"><span class="built_in">print</span>(model)</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p> Training and Evaluating the CNN</p>
+<p>Train and evaluate the CNN on the CIFAR-10 dataset.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Loss and optimizer</span></span><br><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Training loop</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    model.train()</span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> inputs, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        outputs = model(inputs)</span><br><span class="line">        loss = criterion(outputs, labels)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        running_loss += loss.item()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/10], Loss: <span class="subst">&#123;running_loss/<span class="built_in">len</span>(train_loader):<span class="number">.4</span>f&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Evaluation</span></span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line">correct = <span class="number">0</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    <span class="keyword">for</span> inputs, labels <span class="keyword">in</span> test_loader:</span><br><span class="line">        outputs = model(inputs)</span><br><span class="line">        _, predicted = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">        total += labels.size(<span class="number">0</span>)</span><br><span class="line">        correct += (predicted == labels).<span class="built_in">sum</span>().item()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Accuracy: <span class="subst">&#123;<span class="number">100</span> * correct / total:<span class="number">.2</span>f&#125;</span>%&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-Advanced-Topics-in-PyTorch"><a href="#7-Advanced-Topics-in-PyTorch" class="headerlink" title="7. Advanced Topics in PyTorch"></a>7. Advanced Topics in PyTorch</h2><h3 id="Transfer-Learning"><a href="#Transfer-Learning" class="headerlink" title="Transfer Learning"></a>Transfer Learning</h3><p>Transfer learning involves leveraging pre-trained models for new tasks, reducing training time and improving performance.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.models <span class="keyword">as</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load a pre-trained ResNet model</span></span><br><span class="line">resnet = models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Freeze the parameters</span></span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> resnet.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Modify the final layer</span></span><br><span class="line">num_ftrs = resnet.fc.in_features</span><br><span class="line">resnet.fc = nn.Linear(num_ftrs, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Fine-tuning-Pretrained-Models"><a href="#Fine-tuning-Pretrained-Models" class="headerlink" title="Fine-tuning Pretrained Models"></a>Fine-tuning Pretrained Models</h3><p>Fine-tuning involves unfreezing some of the pre-trained model layers and training them on the new dataset.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Unfreeze the last few layers</span></span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> resnet.layer4.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fine-tuning with a smaller learning rate</span></span><br><span class="line">optimizer = torch.optim.Adam(resnet.parameters(), lr=<span class="number">0.0001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Training loop (same as before)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Using-GPUs-for-Acceleration"><a href="#Using-GPUs-for-Acceleration" class="headerlink" title="Using GPUs for Acceleration"></a>Using GPUs for Acceleration</h3><p>PyTorch makes it easy to move computations to the GPU.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check if GPU is available</span></span><br><span class="line">device = torch.device(<span class="string">&#x27;cuda&#x27;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&#x27;cpu&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Move model to GPU</span></span><br><span class="line">model.to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Modify training loop to move inputs and labels to GPU</span></span><br><span class="line"><span class="keyword">for</span> inputs, labels <span class="keyword">in</span> train_loader:</span><br><span class="line">    inputs, labels = inputs.to(device), labels.to(device)</span><br><span class="line">    <span class="comment"># Training steps</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="8-PyTorch-in-Production"><a href="#8-PyTorch-in-Production" class="headerlink" title="8. PyTorch in Production"></a>8. PyTorch in Production</h2><h3 id="Saving-and-Loading-Models"><a href="#Saving-and-Loading-Models" class="headerlink" title="Saving and Loading Models"></a>Saving and Loading Models</h3><p>To save a model’s parameters:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model.state_dict(), <span class="string">&#x27;model.pth&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>To load the model’s parameters:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.load_state_dict(torch.load(<span class="string">&#x27;model.pth&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Deploying-PyTorch-Models"><a href="#Deploying-PyTorch-Models" class="headerlink" title="Deploying PyTorch Models"></a>Deploying PyTorch Models</h3><p>Deploying PyTorch models can be done using various frameworks, such as Flask or FastAPI for creating REST APIs.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the model</span></span><br><span class="line">model = CNN()</span><br><span class="line">model.load_state_dict(torch.load(<span class="string">&#x27;model.pth&#x27;</span>))</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/predict&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">predict</span>():</span><br><span class="line">    data = request.get_json()</span><br><span class="line">    inputs = torch.tensor(data[<span class="string">&#x27;inputs&#x27;</span>]).unsqueeze(<span class="number">0</span>)</span><br><span class="line">    outputs = model(inputs)</span><br><span class="line">    _, predicted = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;prediction&#x27;</span>: predicted.item()&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9-Conclusion-and-Future-Directions"><a href="#9-Conclusion-and-Future-Directions" class="headerlink" title="9. Conclusion and Future Directions"></a>9. Conclusion and Future Directions</h2><p>Learning PyTorch has been an enriching journey. From understanding tensors and basic operations to building complex neural networks, PyTorch offers a comprehensive ecosystem for deep learning. The hands-on approach and dynamic computational graph make it an excellent choice for both beginners and advanced users.</p>
+<p>Future directions include exploring more advanced architectures, contributing to open-source projects, and deploying models in real-world applications. PyTorch continues to evolve, and staying updated with the latest developments will be crucial.</p>
+<hr>
+<h2 id="10-References"><a href="#10-References" class="headerlink" title="10. References"></a>10. References</h2><ol>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/index.html" >PyTorch Official Documentation<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html" >Deep Learning with PyTorch: A 60 Minute Blitz<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/yunjey/pytorch-tutorial" >PyTorch Tutorial by Yunjey Choi<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://cs230.stanford.edu/" >Stanford CS230: Deep Learning<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~kriz/cifar.html" >CIFAR-10 Dataset<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/07/19/Study%20for%20machine%20learning%20and%20deep%20learning/"
+                                   title="Study for machine learning and deep learning"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Study for machine learning and deep learning</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">ChengJun Jin (SungKun Kim)</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+        </div>
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

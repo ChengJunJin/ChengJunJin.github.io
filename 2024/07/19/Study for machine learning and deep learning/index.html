@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="ChengJun Jin (SungKun Kim)">
+    
+    <title>
+        
+            Study for machine learning and deep learning |
+        
+        ChengJun Jin (SungKun Kim)
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"ChengJun Jin (SungKun Kim)","author":"ChengJun Jin (SungKun Kim)","avatar":"https://img1.baidu.com/it/u=3064471960,3758379902&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/                         || fa-solid fa-home","archives":"/archives             || fa-solid fa-box-archive","about":"/about                   || fa-solid fa-user-graduate"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/ChengJunJin","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","email":"chengjunjin2001@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2023,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               ChengJun Jin (SungKun Kim)
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                </span>
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Study for machine learning and deep learning
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://img1.baidu.com/it/u=3064471960,3758379902&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">ChengJun Jin (SungKun Kim)</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-07-19 16:52:59</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Fri Jul 19 2024 16:53:48 GMT+0800">2024-07-19 16:53:48</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="A-Comprehensive-Guide-to-Machine-Learning-and-Deep-Learning"><a href="#A-Comprehensive-Guide-to-Machine-Learning-and-Deep-Learning" class="headerlink" title="A Comprehensive Guide to Machine Learning and Deep Learning"></a>A Comprehensive Guide to Machine Learning and Deep Learning</h1><h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
+<li>Introduction</li>
+<li>What is Machine Learning?<ul>
+<li>Types of Machine Learning</li>
+<li>Supervised Learning</li>
+<li>Unsupervised Learning</li>
+<li>Reinforcement Learning</li>
+</ul>
+</li>
+<li>Essential Machine Learning Algorithms<ul>
+<li>Linear Regression</li>
+<li>Logistic Regression</li>
+<li>Decision Trees</li>
+<li>Support Vector Machines (SVM)</li>
+<li>k-Nearest Neighbors (k-NN)</li>
+<li>K-Means Clustering</li>
+<li>Principal Component Analysis (PCA)</li>
+</ul>
+</li>
+<li>Introduction to Deep Learning<ul>
+<li>What is Deep Learning?</li>
+<li>The Difference Between Machine Learning and Deep Learning</li>
+</ul>
+</li>
+<li>Key Concepts in Deep Learning<ul>
+<li>Artificial Neural Networks (ANN)</li>
+<li>Convolutional Neural Networks (CNN)</li>
+<li>Recurrent Neural Networks (RNN)</li>
+<li>Generative Adversarial Networks (GAN)</li>
+</ul>
+</li>
+<li>Tools and Libraries<ul>
+<li>TensorFlow</li>
+<li>PyTorch</li>
+<li>Keras</li>
+</ul>
+</li>
+<li>Practical Applications of Machine Learning and Deep Learning<ul>
+<li>Image Recognition</li>
+<li>Natural Language Processing (NLP)</li>
+<li>Autonomous Vehicles</li>
+<li>Healthcare</li>
+</ul>
+</li>
+<li>Building a Simple Machine Learning Model<ul>
+<li>Data Preprocessing</li>
+<li>Model Training and Evaluation</li>
+<li>Hyperparameter Tuning</li>
+</ul>
+</li>
+<li>Building a Simple Deep Learning Model<ul>
+<li>Data Preparation</li>
+<li>Building and Training the Model</li>
+<li>Model Evaluation</li>
+</ul>
+</li>
+<li>Challenges and Future Trends<ul>
+<li>Current Challenges</li>
+<li>Future Trends</li>
+</ul>
+</li>
+<li>Conclusion</li>
+<li>References</li>
+</ol>
+<hr>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>Machine Learning (ML) and Deep Learning (DL) are transforming industries by enabling computers to learn from data and make decisions with minimal human intervention. These technologies are behind many innovations today, from voice assistants to self-driving cars. This comprehensive guide aims to provide an in-depth understanding of ML and DL, their algorithms, applications, and how to build simple models using popular libraries.</p>
+<hr>
+<h2 id="2-What-is-Machine-Learning"><a href="#2-What-is-Machine-Learning" class="headerlink" title="2. What is Machine Learning?"></a>2. What is Machine Learning?</h2><p>Machine Learning is a subset of artificial intelligence (AI) that focuses on building systems that can learn from and make decisions based on data. Unlike traditional programming, where rules are explicitly programmed, ML algorithms identify patterns and insights from data, enabling them to make predictions or decisions without being explicitly programmed for specific tasks.</p>
+<h3 id="Types-of-Machine-Learning"><a href="#Types-of-Machine-Learning" class="headerlink" title="Types of Machine Learning"></a>Types of Machine Learning</h3><p>Machine Learning can be broadly categorized into three types:</p>
+<ul>
+<li><strong>Supervised Learning</strong></li>
+<li><strong>Unsupervised Learning</strong></li>
+<li><strong>Reinforcement Learning</strong></li>
+</ul>
+<h3 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h3><p>In supervised learning, the model is trained on a labeled dataset, which means that each training example is paired with an output label. The goal is to learn a mapping from inputs to outputs.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Linear Regression</strong>: Predicting a continuous value.</li>
+<li><strong>Logistic Regression</strong>: Classifying binary outcomes.</li>
+<li><strong>Decision Trees</strong>: Classifying or regressing outputs based on feature splits.</li>
+</ul>
+<h3 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h3><p>In unsupervised learning, the model is provided with unlabeled data and must find patterns and relationships within the data.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>K-Means Clustering</strong>: Grouping similar data points into clusters.</li>
+<li><strong>Principal Component Analysis (PCA)</strong>: Reducing the dimensionality of data while preserving variance.</li>
+</ul>
+<h3 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h3><p>Reinforcement learning involves training an agent to make a sequence of decisions by rewarding it for good actions and penalizing it for bad actions. This is often used in environments where the agent interacts with the environment and learns from the feedback.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Q-Learning</strong>: Learning the value of actions in given states.</li>
+<li><strong>Deep Q-Networks (DQN)</strong>: Using deep learning to improve Q-Learning.</li>
+</ul>
+<hr>
+<h2 id="3-Essential-Machine-Learning-Algorithms"><a href="#3-Essential-Machine-Learning-Algorithms" class="headerlink" title="3. Essential Machine Learning Algorithms"></a>3. Essential Machine Learning Algorithms</h2><p>Understanding key machine learning algorithms is crucial for building effective models. Below are some foundational algorithms:</p>
+<h3 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h3><p>Linear regression is used for predicting a continuous dependent variable based on one or more independent variables.</p>
+<p><strong>Equation:</strong></p>
+<p>[ y &#x3D; \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n + \epsilon ]</p>
+<p>where ( y ) is the dependent variable, ( x ) are the independent variables, ( \beta ) are the coefficients, and ( \epsilon ) is the error term.</p>
+<h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>Logistic regression is used for binary classification tasks. It models the probability that a given input point belongs to a certain class.</p>
+<p><strong>Equation:</strong></p>
+<p>[ P(y&#x3D;1|x) &#x3D; \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n)}} ]</p>
+<h3 id="Decision-Trees"><a href="#Decision-Trees" class="headerlink" title="Decision Trees"></a>Decision Trees</h3><p>Decision trees are used for classification and regression tasks. They split the data into subsets based on the value of input features, creating a tree-like model of decisions.</p>
+<p><strong>Example:</strong></p>
+<p>A decision tree might split data on the feature “age” and then further split on the feature “income level.”</p>
+<h3 id="Support-Vector-Machines-SVM"><a href="#Support-Vector-Machines-SVM" class="headerlink" title="Support Vector Machines (SVM)"></a>Support Vector Machines (SVM)</h3><p>SVMs are used for classification tasks by finding the hyperplane that best separates different classes in the feature space.</p>
+<h3 id="k-Nearest-Neighbors-k-NN"><a href="#k-Nearest-Neighbors-k-NN" class="headerlink" title="k-Nearest Neighbors (k-NN)"></a>k-Nearest Neighbors (k-NN)</h3><p>k-NN is a simple, instance-based learning algorithm where the class of a sample is determined by the majority class among its k nearest neighbors in the feature space.</p>
+<h3 id="K-Means-Clustering"><a href="#K-Means-Clustering" class="headerlink" title="K-Means Clustering"></a>K-Means Clustering</h3><p>K-Means clustering is an unsupervised learning algorithm that partitions data into k clusters, where each data point belongs to the cluster with the nearest mean.</p>
+<h3 id="Principal-Component-Analysis-PCA"><a href="#Principal-Component-Analysis-PCA" class="headerlink" title="Principal Component Analysis (PCA)"></a>Principal Component Analysis (PCA)</h3><p>PCA is used for dimensionality reduction by transforming the data into a set of orthogonal components that capture the maximum variance.</p>
+<hr>
+<h2 id="4-Introduction-to-Deep-Learning"><a href="#4-Introduction-to-Deep-Learning" class="headerlink" title="4. Introduction to Deep Learning"></a>4. Introduction to Deep Learning</h2><h3 id="What-is-Deep-Learning"><a href="#What-is-Deep-Learning" class="headerlink" title="What is Deep Learning?"></a>What is Deep Learning?</h3><p>Deep Learning is a subset of machine learning that uses neural networks with many layers (deep neural networks) to model complex patterns in large datasets. It has achieved remarkable success in various fields such as image and speech recognition, natural language processing, and more.</p>
+<h3 id="The-Difference-Between-Machine-Learning-and-Deep-Learning"><a href="#The-Difference-Between-Machine-Learning-and-Deep-Learning" class="headerlink" title="The Difference Between Machine Learning and Deep Learning"></a>The Difference Between Machine Learning and Deep Learning</h3><ul>
+<li><strong>Machine Learning</strong>: Typically involves feature extraction and selection followed by model training on those features.</li>
+<li><strong>Deep Learning</strong>: Automatically learns hierarchical features from the raw input data, often resulting in better performance on complex tasks.</li>
+</ul>
+<hr>
+<h2 id="5-Key-Concepts-in-Deep-Learning"><a href="#5-Key-Concepts-in-Deep-Learning" class="headerlink" title="5. Key Concepts in Deep Learning"></a>5. Key Concepts in Deep Learning</h2><h3 id="Artificial-Neural-Networks-ANN"><a href="#Artificial-Neural-Networks-ANN" class="headerlink" title="Artificial Neural Networks (ANN)"></a>Artificial Neural Networks (ANN)</h3><p>ANNs are the foundation of deep learning, consisting of layers of neurons, where each neuron takes input and applies a nonlinear transformation to produce output.</p>
+<h3 id="Convolutional-Neural-Networks-CNN"><a href="#Convolutional-Neural-Networks-CNN" class="headerlink" title="Convolutional Neural Networks (CNN)"></a>Convolutional Neural Networks (CNN)</h3><p>CNNs are specialized for processing structured grid data such as images. They use convolutional layers to automatically learn spatial hierarchies of features.</p>
+<p><strong>Key Components:</strong></p>
+<ul>
+<li><strong>Convolutional Layers</strong>: Apply convolutional filters to input data.</li>
+<li><strong>Pooling Layers</strong>: Reduce the dimensionality of the data.</li>
+<li><strong>Fully Connected Layers</strong>: Combine features to classify the input.</li>
+</ul>
+<h3 id="Recurrent-Neural-Networks-RNN"><a href="#Recurrent-Neural-Networks-RNN" class="headerlink" title="Recurrent Neural Networks (RNN)"></a>Recurrent Neural Networks (RNN)</h3><p>RNNs are designed for sequential data, such as time series or natural language. They have loops in the network that allow information to persist, making them suitable for tasks like language modeling and translation.</p>
+<p><strong>Variants:</strong></p>
+<ul>
+<li><strong>Long Short-Term Memory (LSTM)</strong>: Addresses the vanishing gradient problem in RNNs by introducing gates to control the flow of information.</li>
+<li><strong>Gated Recurrent Unit (GRU)</strong>: A simpler variant of LSTM with fewer parameters.</li>
+</ul>
+<h3 id="Generative-Adversarial-Networks-GAN"><a href="#Generative-Adversarial-Networks-GAN" class="headerlink" title="Generative Adversarial Networks (GAN)"></a>Generative Adversarial Networks (GAN)</h3><p>GANs consist of two neural networks, a generator and a discriminator, which are trained simultaneously. The generator creates fake data, while the discriminator evaluates its authenticity.</p>
+<hr>
+<h2 id="6-Tools-and-Libraries"><a href="#6-Tools-and-Libraries" class="headerlink" title="6. Tools and Libraries"></a>6. Tools and Libraries</h2><h3 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h3><p>TensorFlow is an open-source library developed by Google for machine learning and deep learning. It provides flexible tools for building and training models.</p>
+<p><strong>Installation:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
+
+<h3 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h3><p>PyTorch is an open-source deep learning library developed by Facebook. It is known for its dynamic computation graph and ease of use.</p>
+<p><strong>Installation:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install torch torchvision</span><br></pre></td></tr></table></figure>
+
+<h3 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h3><p>Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano.</p>
+<p><strong>Installation:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-Practical-Applications-of-Machine-Learning-and-Deep-Learning"><a href="#7-Practical-Applications-of-Machine-Learning-and-Deep-Learning" class="headerlink" title="7. Practical Applications of Machine Learning and Deep Learning"></a>7. Practical Applications of Machine Learning and Deep Learning</h2><h3 id="Image-Recognition"><a href="#Image-Recognition" class="headerlink" title="Image Recognition"></a>Image Recognition</h3><p>Using CNNs, models can identify objects, faces, and scenes in images with high accuracy. This technology is used in various applications such as security systems, social media, and autonomous vehicles.</p>
+<h3 id="Natural-Language-Processing-NLP"><a href="#Natural-Language-Processing-NLP" class="headerlink" title="Natural Language Processing (NLP)"></a>Natural Language Processing (NLP)</h3><p>NLP enables machines to understand and generate human language. Applications include language translation, sentiment analysis, chatbots, and voice assistants.</p>
+<h3 id="Autonomous-Vehicles"><a href="#Autonomous-Vehicles" class="headerlink" title="Autonomous Vehicles"></a>Autonomous Vehicles</h3><p>ML and DL algorithms process sensor data from cameras, LIDAR, and radar to understand the environment and make driving decisions.</p>
+<h3 id="Healthcare"><a href="#Healthcare" class="headerlink" title="Healthcare"></a>Healthcare</h3><p>ML and DL are revolutionizing healthcare by enabling early diagnosis of diseases, personalized treatment plans, and the analysis of large medical datasets.</p>
+<hr>
+<h2 id="8-Building-a-Simple-Machine-Learning-Model"><a href="#8-Building-a-Simple-Machine-Learning-Model" class="headerlink" title="8. Building a Simple Machine Learning Model"></a>8. Building a Simple Machine Learning Model</h2><h3 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h3><p>Data preprocessing involves cleaning and transforming raw data into a format suitable for modeling. This includes handling missing values, scaling features, and encoding categorical variables.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load dataset</span></span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Handle missing values</span></span><br><span class="line">data.fillna(data.mean(), inplace=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Encode categorical variables</span></span><br><span class="line">data = pd.get_dummies(data, drop_first=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Split into features and labels</span></span><br><span class="line">X = data.drop(<span class="string">&#x27;target&#x27;</span>, axis=<span class="number">1</span>)</span><br><span class="line">y = data[<span class="string">&#x27;target&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Split into training and testing sets</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split</span><br><span class="line"></span><br><span class="line">(X, y, test_size=<span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Scale features</span></span><br><span class="line">scaler = StandardScaler()</span><br><span class="line">X_train = scaler.fit_transform(X_train)</span><br><span class="line">X_test = scaler.transform(X_test)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Model-Training-and-Evaluation"><a href="#Model-Training-and-Evaluation" class="headerlink" title="Model Training and Evaluation"></a>Model Training and Evaluation</h3><p>Choose an algorithm, train the model on the training data, and evaluate its performance on the test data.</p>
+<p><strong>Example using Logistic Regression:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score, confusion_matrix, classification_report</span><br><span class="line"></span><br><span class="line"><span class="comment"># Train model</span></span><br><span class="line">model = LogisticRegression()</span><br><span class="line">model.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Make predictions</span></span><br><span class="line">y_pred = model.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Evaluate model</span></span><br><span class="line">accuracy = accuracy_score(y_test, y_pred)</span><br><span class="line">conf_matrix = confusion_matrix(y_test, y_pred)</span><br><span class="line">class_report = classification_report(y_test, y_pred)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Accuracy: <span class="subst">&#123;accuracy&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Confusion Matrix:\n<span class="subst">&#123;conf_matrix&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Classification Report:\n<span class="subst">&#123;class_report&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hyperparameter-Tuning"><a href="#Hyperparameter-Tuning" class="headerlink" title="Hyperparameter Tuning"></a>Hyperparameter Tuning</h3><p>Hyperparameter tuning involves adjusting the parameters of the model to improve its performance. This can be done using techniques like grid search or random search.</p>
+<p><strong>Example using Grid Search:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define hyperparameters</span></span><br><span class="line">param_grid = &#123;</span><br><span class="line">    <span class="string">&#x27;C&#x27;</span>: [<span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>],</span><br><span class="line">    <span class="string">&#x27;solver&#x27;</span>: [<span class="string">&#x27;liblinear&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Grid search</span></span><br><span class="line">grid_search = GridSearchCV(LogisticRegression(), param_grid, cv=<span class="number">5</span>)</span><br><span class="line">grid_search.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Best parameters</span></span><br><span class="line">best_params = grid_search.best_params_</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Best Parameters: <span class="subst">&#123;best_params&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Evaluate best model</span></span><br><span class="line">best_model = grid_search.best_estimator_</span><br><span class="line">y_pred = best_model.predict(X_test)</span><br><span class="line">accuracy = accuracy_score(y_test, y_pred)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Accuracy: <span class="subst">&#123;accuracy&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="9-Building-a-Simple-Deep-Learning-Model"><a href="#9-Building-a-Simple-Deep-Learning-Model" class="headerlink" title="9. Building a Simple Deep Learning Model"></a>9. Building a Simple Deep Learning Model</h2><h3 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h3><p>Prepare the data for training, including loading, normalizing, and augmenting the dataset if necessary.</p>
+<p><strong>Example using Keras for an image dataset:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.preprocessing.image <span class="keyword">import</span> ImageDataGenerator</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create data generators</span></span><br><span class="line">train_datagen = ImageDataGenerator(rescale=<span class="number">1.</span>/<span class="number">255</span>, shear_range=<span class="number">0.2</span>, zoom_range=<span class="number">0.2</span>, horizontal_flip=<span class="literal">True</span>)</span><br><span class="line">test_datagen = ImageDataGenerator(rescale=<span class="number">1.</span>/<span class="number">255</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load data</span></span><br><span class="line">train_generator = train_datagen.flow_from_directory(<span class="string">&#x27;data/train&#x27;</span>, target_size=(<span class="number">64</span>, <span class="number">64</span>), batch_size=<span class="number">32</span>, class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br><span class="line">test_generator = test_datagen.flow_from_directory(<span class="string">&#x27;data/test&#x27;</span>, target_size=(<span class="number">64</span>, <span class="number">64</span>), batch_size=<span class="number">32</span>, class_mode=<span class="string">&#x27;binary&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Building-and-Training-the-Model"><a href="#Building-and-Training-the-Model" class="headerlink" title="Building and Training the Model"></a>Building and Training the Model</h3><p>Define the neural network architecture, compile the model, and train it on the training data.</p>
+<p><strong>Example using Keras for a CNN:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D, Flatten, Dense</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build model</span></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), input_shape=(<span class="number">64</span>, <span class="number">64</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">model.add(Conv2D(<span class="number">32</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">model.add(Flatten())</span><br><span class="line">model.add(Dense(units=<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">model.add(Dense(units=<span class="number">1</span>, activation=<span class="string">&#x27;sigmoid&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compile model</span></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>, loss=<span class="string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Train model</span></span><br><span class="line">model.fit_generator(train_generator, steps_per_epoch=<span class="number">8000</span>, epochs=<span class="number">25</span>, validation_data=test_generator, validation_steps=<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Model-Evaluation"><a href="#Model-Evaluation" class="headerlink" title="Model Evaluation"></a>Model Evaluation</h3><p>Evaluate the trained model on the test data to determine its performance.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Evaluate model</span></span><br><span class="line">loss, accuracy = model.evaluate_generator(test_generator)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Loss: <span class="subst">&#123;loss&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Accuracy: <span class="subst">&#123;accuracy&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="10-Challenges-and-Future-Trends"><a href="#10-Challenges-and-Future-Trends" class="headerlink" title="10. Challenges and Future Trends"></a>10. Challenges and Future Trends</h2><h3 id="Current-Challenges"><a href="#Current-Challenges" class="headerlink" title="Current Challenges"></a>Current Challenges</h3><ol>
+<li><strong>Data Quality</strong>: Poor quality or insufficient data can hinder model performance.</li>
+<li><strong>Interpretability</strong>: Understanding how models make decisions is crucial, especially in sensitive applications like healthcare.</li>
+<li><strong>Scalability</strong>: Training large models requires significant computational resources.</li>
+<li><strong>Bias and Fairness</strong>: Ensuring models are fair and unbiased is essential.</li>
+</ol>
+<h3 id="Future-Trends"><a href="#Future-Trends" class="headerlink" title="Future Trends"></a>Future Trends</h3><ol>
+<li><strong>Explainable AI (XAI)</strong>: Developing methods to interpret and understand complex models.</li>
+<li><strong>Federated Learning</strong>: Training models on decentralized data while preserving privacy.</li>
+<li><strong>AutoML</strong>: Automating the end-to-end process of applying machine learning to real-world problems.</li>
+<li><strong>Quantum Machine Learning</strong>: Leveraging quantum computing for machine learning tasks.</li>
+</ol>
+<hr>
+<h2 id="11-Conclusion"><a href="#11-Conclusion" class="headerlink" title="11. Conclusion"></a>11. Conclusion</h2><p>Machine Learning and Deep Learning are powerful technologies that are transforming industries and solving complex problems. This guide has provided an overview of key concepts, algorithms, tools, and practical applications, along with step-by-step instructions for building simple models. By continuing to explore and experiment with these technologies, you can unlock new opportunities and innovations in your field.</p>
+<hr>
+<h2 id="12-References"><a href="#12-References" class="headerlink" title="12. References"></a>12. References</h2><ol>
+<li><a class="link"   target="_blank" rel="noopener" href="https://scikit-learn.org/stable/documentation.html" >Scikit-Learn Documentation<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.tensorflow.org/learn" >TensorFlow Documentation<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/index.html" >PyTorch Documentation<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://keras.io/docs/" >Keras Documentation<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5" >YOLOv5 GitHub Repository<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/tzutalin/labelImg" >LabelImg GitHub Repository<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://opencv.org/" >OpenCV Official Website<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pytorch.org/" >PyTorch Official Website<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/07/19/Pytorch%20Study/"
+                                   title="Pytorch Study"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Pytorch Study</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/07/19/yolov5-Aim%20demo/"
+                                   title="Yolov5-Aim demo"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Yolov5-Aim demo</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">ChengJun Jin (SungKun Kim)</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+        </div>
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
