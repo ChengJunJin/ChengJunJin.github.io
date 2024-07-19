@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="ChengJun Jin (SungKun Kim)">
+    
+    <title>
+        
+            Building a Simple Database with CRUD Operations in C Table of Contents |
+        
+        ChengJun Jin (SungKun Kim)
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"ChengJun Jin (SungKun Kim)","author":"ChengJun Jin (SungKun Kim)","avatar":"https://img1.baidu.com/it/u=3064471960,3758379902&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/                         || fa-solid fa-home","archives":"/archives             || fa-solid fa-box-archive","about":"/about                   || fa-solid fa-user-graduate"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/ChengJunJin","weixin":"img | /images/wechat.jpg","qq":"img | /images/qq.jpg","email":"chengjunjin2001@gmail.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":false,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2023,"word_count":false,"site_deploy":{"enable":true,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.0"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               ChengJun Jin (SungKun Kim)
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                
+                                ABOUT
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user-graduate"></i>
+                                </span>
+                            
+                            ABOUT
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Building a Simple Database with CRUD Operations in C Table of Contents
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://img1.baidu.com/it/u=3064471960,3758379902&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=667">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">ChengJun Jin (SungKun Kim)</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-07-19 11:46:38</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Fri Jul 19 2024 12:00:25 GMT+0800">2024-07-19 12:00:25</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="Building-a-Simple-Database-with-CRUD-Operations-in-C"><a href="#Building-a-Simple-Database-with-CRUD-Operations-in-C" class="headerlink" title="Building a Simple Database with CRUD Operations in C"></a>Building a Simple Database with CRUD Operations in C</h1><h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#setting-up-the-environment">Setting Up the Environment</a></li>
+<li><a href="#designing-the-database">Designing the Database</a></li>
+<li><a href="#creating-the-database-structure">Creating the Database Structure</a></li>
+<li><a href="#implementing-crud-operations">Implementing CRUD Operations</a><ol>
+<li><a href="#create-operation">Create Operation</a></li>
+<li><a href="#read-operation">Read Operation</a></li>
+<li><a href="#update-operation">Update Operation</a></li>
+<li><a href="#delete-operation">Delete Operation</a></li>
+</ol>
+</li>
+<li><a href="#testing-the-crud-operations">Testing the CRUD Operations</a></li>
+<li><a href="#handling-errors-and-edge-cases">Handling Errors and Edge Cases</a></li>
+<li><a href="#optimizations-and-enhancements">Optimizations and Enhancements</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Databases are an integral part of almost any application, providing a structured way to store, retrieve, and manipulate data. While there are many advanced database systems available, building a simple database from scratch can be a valuable learning experience. In this blog post, we will walk through the process of creating a basic database with CRUD (Create, Read, Update, Delete) operations using the C programming language.</p>
+<p>This guide is intended for those who have a basic understanding of C and want to delve deeper into data structures and file handling. By the end of this post, you will have a functional, albeit basic, database system that can perform essential data operations.</p>
+<h2 id="Setting-Up-the-Environment"><a href="#Setting-Up-the-Environment" class="headerlink" title="Setting Up the Environment"></a>Setting Up the Environment</h2><p>Before we dive into the code, we need to set up our development environment. For this project, we will use GCC (GNU Compiler Collection) to compile our C code. Additionally, we will use a simple text editor or an integrated development environment (IDE) like Visual Studio Code or CLion.</p>
+<h3 id="Installing-GCC"><a href="#Installing-GCC" class="headerlink" title="Installing GCC"></a>Installing GCC</h3><p>GCC can be installed on various operating systems. Here are the installation instructions for the most common ones:</p>
+<p><strong>Linux (Ubuntu&#x2F;Debian):</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install gcc</span><br></pre></td></tr></table></figure>
+
+<p><strong>Windows:</strong></p>
+<p>Download and install MinGW from <a class="link"   target="_blank" rel="noopener" href="http://www.mingw.org/" >MinGW website<i class="fas fa-external-link-alt"></i></a>.</p>
+<p><strong>macOS:</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+
+<h3 id="Setting-Up-a-Project-Directory"><a href="#Setting-Up-a-Project-Directory" class="headerlink" title="Setting Up a Project Directory"></a>Setting Up a Project Directory</h3><p>Create a directory for your project and navigate into it:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> simple_database</span><br><span class="line"><span class="built_in">cd</span> simple_database</span><br></pre></td></tr></table></figure>
+
+<p>Inside this directory, create a file named <code>database.c</code> where we will write our C code.</p>
+<h2 id="Designing-the-Database"><a href="#Designing-the-Database" class="headerlink" title="Designing the Database"></a>Designing the Database</h2><p>Before we start coding, we need to design the structure of our database. For simplicity, we will create a database to manage a list of users, where each user has an ID, name, and email.</p>
+<h3 id="Database-Schema"><a href="#Database-Schema" class="headerlink" title="Database Schema"></a>Database Schema</h3><p>Our database will consist of the following structure:</p>
+<ol>
+<li><strong>ID</strong>: A unique integer identifier for each user.</li>
+<li><strong>Name</strong>: A string representing the user’s name.</li>
+<li><strong>Email</strong>: A string representing the user’s email address.</li>
+</ol>
+<p>We will store the database in a file, where each record is a line in the file, and fields are separated by a delimiter (e.g., a comma).</p>
+<h3 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h3><p>We will use a struct in C to represent a user:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">char</span> email[<span class="number">50</span>];</span><br><span class="line">&#125; User;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Creating-the-Database-Structure"><a href="#Creating-the-Database-Structure" class="headerlink" title="Creating the Database Structure"></a>Creating the Database Structure</h2><p>Let’s start by implementing functions to initialize our database and load it from a file.</p>
+<h3 id="Initializing-the-Database"><a href="#Initializing-the-Database" class="headerlink" title="Initializing the Database"></a>Initializing the Database</h3><p>Create a function to initialize the database. This function will create an empty file if it does not exist:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DATABASE_FILE <span class="string">&quot;database.txt&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">initialize_database</span><span class="params">()</span> &#123;</span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;a&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This function opens the file in append mode, creating it if it does not exist, and then closes the file. This ensures that our database file is always present.</p>
+<h3 id="Loading-the-Database"><a href="#Loading-the-Database" class="headerlink" title="Loading the Database"></a>Loading the Database</h3><p>Next, let’s create a function to load the database into memory. We will read the file line by line and parse each line into a <code>User</code> struct.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_USERS 100</span></span><br><span class="line"></span><br><span class="line">User users[MAX_USERS];</span><br><span class="line"><span class="type">int</span> user_count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">load_database</span><span class="params">()</span> &#123;</span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for reading\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> line[<span class="number">150</span>];</span><br><span class="line">    <span class="keyword">while</span> (fgets(line, <span class="keyword">sizeof</span>(line), file)) &#123;</span><br><span class="line">        User user;</span><br><span class="line">        <span class="type">char</span> *token = strtok(line, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">        user.id = atoi(token);</span><br><span class="line"></span><br><span class="line">        token = strtok(<span class="literal">NULL</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="built_in">strcpy</span>(user.name, token);</span><br><span class="line"></span><br><span class="line">        token = strtok(<span class="literal">NULL</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="built_in">strcpy</span>(user.email, token);</span><br><span class="line"></span><br><span class="line">        users[user_count++] = user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    load_database();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this function, we open the file in read mode and read each line. We use <code>strtok</code> to tokenize the line based on the comma delimiter and populate the <code>User</code> struct accordingly. Finally, we store each user in an array.</p>
+<h2 id="Implementing-CRUD-Operations"><a href="#Implementing-CRUD-Operations" class="headerlink" title="Implementing CRUD Operations"></a>Implementing CRUD Operations</h2><p>Now that we have our database initialized and loaded, let’s implement the CRUD operations: Create, Read, Update, and Delete.</p>
+<h3 id="Create-Operation"><a href="#Create-Operation" class="headerlink" title="Create Operation"></a>Create Operation</h3><p>The create operation will add a new user to the database. We will create a function to add a user to the array and then write the user to the file.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">add_user</span><span class="params">(<span class="type">int</span> id, <span class="type">const</span> <span class="type">char</span> *name, <span class="type">const</span> <span class="type">char</span> *email)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (user_count &gt;= MAX_USERS) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Database is full\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    User user;</span><br><span class="line">    user.id = id;</span><br><span class="line">    <span class="built_in">strcpy</span>(user.name, name);</span><br><span class="line">    <span class="built_in">strcpy</span>(user.email, email);</span><br><span class="line"></span><br><span class="line">    users[user_count++] = user;</span><br><span class="line"></span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;a&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">fprintf</span>(file, <span class="string">&quot;%d,%s,%s\n&quot;</span>, user.id, user.name, user.email);</span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    load_database();</span><br><span class="line"></span><br><span class="line">    add_user(<span class="number">1</span>, <span class="string">&quot;John Doe&quot;</span>, <span class="string">&quot;john.doe@example.com&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Read-Operation"><a href="#Read-Operation" class="headerlink" title="Read Operation"></a>Read Operation</h3><p>The read operation will display all users in the database. We will create a function to print the details of each user.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">list_users</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;ID: %d, Name: %s, Email: %s\n&quot;</span>, users[i].id, users[i].name, users[i].email);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    load_database();</span><br><span class="line"></span><br><span class="line">    add_user(<span class="number">1</span>, <span class="string">&quot;John Doe&quot;</span>, <span class="string">&quot;john.doe@example.com&quot;</span>);</span><br><span class="line">    list_users();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Update-Operation"><a href="#Update-Operation" class="headerlink" title="Update Operation"></a>Update Operation</h3><p>The update operation will modify an existing user’s details. We will create a function to find a user by ID and update their information.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">update_user</span><span class="params">(<span class="type">int</span> id, <span class="type">const</span> <span class="type">char</span> *name, <span class="type">const</span> <span class="type">char</span> *email)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[i].id == id) &#123;</span><br><span class="line">            <span class="built_in">strcpy</span>(users[i].name, name);</span><br><span class="line">            <span class="built_in">strcpy</span>(users[i].email, email);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(file, <span class="string">&quot;%d,%s,%s\n&quot;</span>, users[i].id, users[i].name, users[i].email);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    load_database();</span><br><span class="line"></span><br><span class="line">    add_user(<span class="number">1</span>, <span class="string">&quot;John Doe&quot;</span>, <span class="string">&quot;john.doe@example.com&quot;</span>);</span><br><span class="line">    list_users();</span><br><span class="line"></span><br><span class="line">    update_user(<span class="number">1</span>, <span class="string">&quot;Jane Doe&quot;</span>, <span class="string">&quot;jane.doe@example.com&quot;</span>);</span><br><span class="line">    list_users();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Delete-Operation"><a href="#Delete-Operation" class="headerlink" title="Delete Operation"></a>Delete Operation</h3><p>The delete operation will remove a user from the database. We will create a function to find a user by ID and remove them from the array, then update the file.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delete_user</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">    <span class="type">int</span> index = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[i].id == id) &#123;</span><br><span class="line">            index = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;User not found\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = index; i &lt; user_count - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        users[i] = users[i + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    user_count--;</span><br><span class="line"></span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span></span><br><span class="line"></span><br><span class="line"> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(file, <span class="string">&quot;%d,%s,%s\n&quot;</span>, users[i].id, users[i].name, users[i].email);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    load_database();</span><br><span class="line"></span><br><span class="line">    add_user(<span class="number">1</span>, <span class="string">&quot;John Doe&quot;</span>, <span class="string">&quot;john.doe@example.com&quot;</span>);</span><br><span class="line">    list_users();</span><br><span class="line"></span><br><span class="line">    update_user(<span class="number">1</span>, <span class="string">&quot;Jane Doe&quot;</span>, <span class="string">&quot;jane.doe@example.com&quot;</span>);</span><br><span class="line">    list_users();</span><br><span class="line"></span><br><span class="line">    delete_user(<span class="number">1</span>);</span><br><span class="line">    list_users();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Testing-the-CRUD-Operations"><a href="#Testing-the-CRUD-Operations" class="headerlink" title="Testing the CRUD Operations"></a>Testing the CRUD Operations</h2><p>To ensure our database functions correctly, let’s test all CRUD operations. We will add multiple users, list them, update a user, and delete a user.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    initialize_database();</span><br><span class="line">    load_database();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create</span></span><br><span class="line">    add_user(<span class="number">1</span>, <span class="string">&quot;John Doe&quot;</span>, <span class="string">&quot;john.doe@example.com&quot;</span>);</span><br><span class="line">    add_user(<span class="number">2</span>, <span class="string">&quot;Alice Smith&quot;</span>, <span class="string">&quot;alice.smith@example.com&quot;</span>);</span><br><span class="line">    add_user(<span class="number">3</span>, <span class="string">&quot;Bob Johnson&quot;</span>, <span class="string">&quot;bob.johnson@example.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Read</span></span><br><span class="line">    list_users();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update</span></span><br><span class="line">    update_user(<span class="number">2</span>, <span class="string">&quot;Alice Johnson&quot;</span>, <span class="string">&quot;alice.johnson@example.com&quot;</span>);</span><br><span class="line">    list_users();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Delete</span></span><br><span class="line">    delete_user(<span class="number">1</span>);</span><br><span class="line">    list_users();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Expected-Output"><a href="#Expected-Output" class="headerlink" title="Expected Output"></a>Expected Output</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ID: 1, Name: John Doe, Email: john.doe@example.com</span><br><span class="line">ID: 2, Name: Alice Smith, Email: alice.smith@example.com</span><br><span class="line">ID: 3, Name: Bob Johnson, Email: bob.johnson@example.com</span><br><span class="line"></span><br><span class="line">ID: 1, Name: John Doe, Email: john.doe@example.com</span><br><span class="line">ID: 2, Name: Alice Johnson, Email: alice.johnson@example.com</span><br><span class="line">ID: 3, Name: Bob Johnson, Email: bob.johnson@example.com</span><br><span class="line"></span><br><span class="line">ID: 2, Name: Alice Johnson, Email: alice.johnson@example.com</span><br><span class="line">ID: 3, Name: Bob Johnson, Email: bob.johnson@example.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="Handling-Errors-and-Edge-Cases"><a href="#Handling-Errors-and-Edge-Cases" class="headerlink" title="Handling Errors and Edge Cases"></a>Handling Errors and Edge Cases</h2><p>To make our database more robust, we need to handle potential errors and edge cases, such as:</p>
+<ol>
+<li>Adding a user with an existing ID.</li>
+<li>Updating a non-existent user.</li>
+<li>Deleting a non-existent user.</li>
+<li>Handling file I&#x2F;O errors gracefully.</li>
+</ol>
+<h3 id="Checking-for-Existing-IDs"><a href="#Checking-for-Existing-IDs" class="headerlink" title="Checking for Existing IDs"></a>Checking for Existing IDs</h3><p>Before adding a new user, we should check if a user with the same ID already exists:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">user_exists</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[i].id == id) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">add_user</span><span class="params">(<span class="type">int</span> id, <span class="type">const</span> <span class="type">char</span> *name, <span class="type">const</span> <span class="type">char</span> *email)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (user_exists(id)) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;User with ID %d already exists\n&quot;</span>, id);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (user_count &gt;= MAX_USERS) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Database is full\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    User user;</span><br><span class="line">    user.id = id;</span><br><span class="line">    <span class="built_in">strcpy</span>(user.name, name);</span><br><span class="line">    <span class="built_in">strcpy</span>(user.email, email);</span><br><span class="line"></span><br><span class="line">    users[user_count++] = user;</span><br><span class="line"></span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;a&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">fprintf</span>(file, <span class="string">&quot;%d,%s,%s\n&quot;</span>, user.id, user.name, user.email);</span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Handling-Non-Existent-Users"><a href="#Handling-Non-Existent-Users" class="headerlink" title="Handling Non-Existent Users"></a>Handling Non-Existent Users</h3><p>For update and delete operations, we should handle the case where the user does not exist:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">update_user</span><span class="params">(<span class="type">int</span> id, <span class="type">const</span> <span class="type">char</span> *name, <span class="type">const</span> <span class="type">char</span> *email)</span> &#123;</span><br><span class="line">    <span class="type">int</span> index = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[i].id == id) &#123;</span><br><span class="line">            index = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;User with ID %d not found\n&quot;</span>, id);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">strcpy</span>(users[index].name, name);</span><br><span class="line">    <span class="built_in">strcpy</span>(users[index].email, email);</span><br><span class="line"></span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(file, <span class="string">&quot;%d,%s,%s\n&quot;</span>, users[i].id, users[i].name, users[i].email);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">delete_user</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">    <span class="type">int</span> index = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (users[i].id == id) &#123;</span><br><span class="line">            index = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;User with ID %d not found\n&quot;</span>, id);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = index; i &lt; user_count - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        users[i] = users[i + <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    user_count--;</span><br><span class="line"></span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; user_count; i++) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(file, <span class="string">&quot;%d,%s,%s\n&quot;</span>, users[i].id, users[i].name, users[i].email);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Handling-File-I-O-Errors-Gracefully"><a href="#Handling-File-I-O-Errors-Gracefully" class="headerlink" title="Handling File I&#x2F;O Errors Gracefully"></a>Handling File I&#x2F;O Errors Gracefully</h3><p>We should handle file I&#x2F;O errors more gracefully by returning error codes and messages instead of terminating the program:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">initialize_database</span><span class="params">()</span> &#123;</span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;a&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for writing\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">load_database</span><span class="params">()</span> &#123;</span><br><span class="line">    FILE *file = fopen(DATABASE_FILE, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">&quot;Could not open file %s for reading\n&quot;</span>, DATABASE_FILE);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> line[<span class="number">150</span>];</span><br><span class="line">    <span class="keyword">while</span> (fgets(line, <span class="keyword">sizeof</span>(line), file)) &#123;</span><br><span class="line">        User user;</span><br><span class="line">        <span class="type">char</span> *token = strtok(line, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">        user.id = atoi(token);</span><br><span class="line"></span><br><span class="line">        token = strtok(<span class="literal">NULL</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="built_in">strcpy</span>(user.name, token);</span><br><span class="line"></span><br><span class="line">        token = strtok(<span class="literal">NULL</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="built_in">strcpy</span>(user.email, token);</span><br><span class="line"></span><br><span class="line">        users[user_count++] = user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fclose(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (initialize_database() != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (load_database() != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create, Read, Update, Delete operations...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Optimizations-and-Enhancements"><a href="#Optimizations-and-Enhancements" class="headerlink" title="Optimizations and Enhancements"></a>Optimizations and Enhancements</h2><p>While our database is functional, there are several ways we could optimize and enhance it:</p>
+<h3 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h3><p>To speed up search operations, we could implement an indexing mechanism. For example, we could maintain a hash table or a binary search tree of user IDs.</p>
+<h3 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h3><p>To handle concurrent access, we could implement file locking or use database management libraries that support concurrency.</p>
+<h3 id="Query-Language"><a href="#Query-Language" class="headerlink" title="Query Language"></a>Query Language</h3><p>We could implement a simple query language to allow more complex queries. For example, users could search for records based on multiple criteria.</p>
+<h3 id="Backup-and-Recovery"><a href="#Backup-and-Recovery" class="headerlink" title="Backup and Recovery"></a>Backup and Recovery</h3><p>To prevent data loss, we could implement backup and recovery mechanisms. For example, we could periodically create backup copies of the database file.</p>
+<h3 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h3><p>For better user interaction, we could develop a graphical user interface (GUI) using a library like GTK or Qt.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this blog post, we have walked through the process of building a simple database with CRUD operations in C. We started by setting up the environment and designing the database structure. We then implemented the CRUD operations and tested them thoroughly. Finally, we discussed handling errors and edge cases, and explored potential optimizations and enhancements.</p>
+<p>While this project is relatively simple, it covers many fundamental concepts of database management and file handling in C. By building this project, you gain a deeper understanding of how databases work under the hood and how to manage data effectively using C.</p>
+<p>Feel free to expand on this project by adding more features and optimizations. Happy coding!</p>
+<hr>
+<p>I hope this comprehensive guide helps you understand the process of building a simple database with CRUD operations in C. If you have any questions or need further assistance, feel free to reach out!</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2024/07/19/Conference-Booking-System%20Blog/"
+                                   title="Conference-Booking-System"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Conference-Booking-System</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2023</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">ChengJun Jin (SungKun Kim)</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+        
+        <div class="deploy-info info-item">
+            
+            This site is deployed on <span class="tooltip" data-tooltip-content="GitHub Pages"><img src="/images/brands/github.png"></span>
+            
+        </div>
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
